@@ -1,5 +1,3 @@
-// import "./commands";
-// And Keyword is not supported
 import { Then, When, Given } from "@badeball/cypress-cucumber-preprocessor";
 
 Given("the user is on the login page", () => {
