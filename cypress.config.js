@@ -23,6 +23,10 @@ module.exports = defineConfig({
     supportFile: "cypress/support/e2e.js",
     setupNodeEvents,
     baseUrl: "https://app.smalltalk2.me",
+    env: {
+      email: "mohammadalqam199@gmail.com",
+      password: 123456,
+    },
   },
 });
 //

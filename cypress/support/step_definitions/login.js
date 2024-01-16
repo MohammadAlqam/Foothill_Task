@@ -9,19 +9,19 @@ Given("the user is on the login page", () => {
 
 When("the user enters valid credentials", () => {
   //enter valid email
-  cy.typeBySelector("sign-in-email", "bb.mx.fr@gmail.com");
+  cy.typeBySelector("sign-in-email", Cypress.env("email"));
   //enter valid password
-  cy.typeBySelector("sign-in-password", "123456");
+  cy.typeBySelector("sign-in-password", Cypress.env("password"));
 });
 
-When("clicks the login button", (buttonText) => {
+When("clicks the login button", () => {
   //intercept login API to spy on it
   cy.interceptAPI("/api2/auth/login", "POST").as("loginRequest");
   //click on Log in button
   cy.clickBySelector("sign-in-submit", "data-test");
 });
 
-Then("the user should be redirected to the home page", (pageTitle) => {
+Then("the user should be redirected to the home page", () => {
   //check 200 status code
   cy.verifyAPIStatusCode("@loginRequest");
   //element assertion in home page
@@ -32,14 +32,14 @@ Then("the user should be redirected to the home page", (pageTitle) => {
   //todo verify that local storage is storing token element
 });
 
-When("the user enters incorrect password", (buttonText) => {
+When("the user enters incorrect password", () => {
   //enter valid email
-  cy.typeBySelector("sign-in-email", "bb.mx.fr@gmail.com");
+  cy.typeBySelector("sign-in-email", Cypress.env("email"));
   //enter invalid password
-  cy.typeBySelector("sign-in-password", "1234567");
+  cy.typeBySelector("sign-in-password", `${Cypress.env("password")}33`);
 });
 
-Then("an error message should be displayed", (pageTitle) => {
+Then("an error message should be displayed", () => {
   ///alert message element assertion
   cy.verifyElement(
     "Wrong password. Try again or click Forgot password to reset it.",
