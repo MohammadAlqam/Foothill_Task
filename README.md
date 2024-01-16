@@ -1,8 +1,8 @@
 <h2>A cypress project support behaviour-Driven Development(BDD) using Cucumber third party plugin with Gherkin syntax</h2>
 
-Scenarios:- 
+# Scenarios:- 
    Successful Login, Unsuccessful Login with Incorrect password, Forgot Password Link, Empty Fields Error
-Custom command:-
+# Custom command:-
   typeBySelector, clickBySelector, verifyURL, verifyElement, interceptAPI, verifyAPIStatusCode 
   
 
